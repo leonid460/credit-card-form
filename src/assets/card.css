@@ -1,0 +1,17 @@
+.card {
+  position: absolute;
+
+  border-radius: 30px;
+
+  height: 300px;
+  width: 500px;
+}
+
+
+.card-front {
+  background: red;
+}
+
+.card-back {
+  background: blue;
+}
