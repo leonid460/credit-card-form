@@ -6,30 +6,53 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      side: 'front',
+      cardStatus: '',
+      cardNumber: ''
     }
 
-    this.turnBackHandler = this.turnBackHandler.bind(this);
-    this.turnFrontHandler = this.turnFrontHandler.bind(this);
+    this.cvvFocusHandler = this.cvvFocusHandler.bind(this);
+    this.cvvBlurHandler = this.cvvBlurHandler.bind(this);
+    
+    this.numberInputHandler = this.numberInputHandler.bind(this);
   }
 
-  turnBackHandler = () => {
-    this.setState({side: 'back'});
+  numberInputHandler(event) {
+    let input = event.target.value;
+    
+    if (input.length > 4 && input[4] !== ' ') {
+      input = input.slice(0,4) + ' ' + input.slice(4, input.length);
+    }
+    if (input.length > 9 && input[9] !== ' ') {
+      input = input.slice(0,9) + ' ' + input.slice(9, input.length);
+    }
+    if (input.length > 14 && input[14] !== ' ') {
+      input = input.slice(0,14) + ' ' + input.slice(14, input.length);
+    }
+
+    this.setState({cardNumber: input});
   }
 
-  turnFrontHandler = () => {
-    this.setState({side: 'front'});
+  cvvFocusHandler = () => {
+    this.setState({cardStatus: 'turned'});
+  }
+
+  cvvBlurHandler = () => {
+    this.setState({cardStatus: ''});
   }
 
   render() {
     return (
       <div className='wrapper'>
         <CardForm 
-          turnBackHandler={this.turnBackHandler} 
-          turnFrontHandler={this.turnFrontHandler}
+          cvvFocusHandler={this.cvvFocusHandler} 
+          cvvBlurHandler={this.cvvBlurHandler}
+
+          numberInputHandler={this.numberInputHandler}
+          cardNumber={this.state.cardNumber}
         />
         <Card 
-          side={this.state.side}
+          status={this.state.cardStatus}
+          number={this.state.cardNumber}
         />
       </div>
     );

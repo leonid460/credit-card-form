@@ -1,6 +1,13 @@
 import React from 'react';
 
 export default class CardForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cardNumber: '',
+    }
+  }
+
   render() {
     return (
     <div className='card-form'>
@@ -9,7 +16,15 @@ export default class CardForm extends React.Component {
           <label htmlFor='card-number'>
               Card Number
           </label>
-          <input id='card-number'/>
+          <input 
+            onChange={this.props.numberInputHandler}
+            value={this.props.cardNumber}
+            id='card-number'
+            type='text'
+            data-card-field
+            autoComplete='off'
+            maxLength='19'
+          />
         </div>
 
         <div className='card-form__inner__input-field'>
@@ -29,10 +44,10 @@ export default class CardForm extends React.Component {
           </div>
 
           <div className='card-form__inner__row__column'>
-            <label htmlFor='cw'>CW</label>
+            <label htmlFor='cw'>CVV</label>
             <input 
-              onFocus={this.props.turnBackHandler} 
-              onBlur={this.props.turnFrontHandler}
+              onFocus={this.props.cvvFocusHandler} 
+              onBlur={this.props.cvvBlurHandler}
               id='cw'
             />
           </div>

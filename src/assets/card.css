@@ -1,17 +1,111 @@
 .card {
   position: absolute;
 
-  border-radius: 30px;
+  width: 430px;
+  height: 270px;
+}
 
-  height: 300px;
-  width: 500px;
+.card__front, .card__back {
+  position: absolute;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  height: 100%;
+  width: 100%;
+
+  transition: all 1s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+}
+
+.card__front {
+  z-index: 1;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  background: center url('./images/cyber-girl.jpeg');
+  background-size: cover;
+  
+  transform: perspective(2000px) rotateY(0deg) rotateX(0deg) rotate(0deg);
+}
+
+.card__front__top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  height: 50px;
+  width: 100%;
+}
+
+.card__front__top-row__chip {
+  width: 60px;
+  height: 50px;
+  
+  border-radius: 6px;
+  
+  background: center url('./images/chip.png');
+  background-size: cover;
+}
+.card__front__top-row__type {
+  height: 42px;
+  width: 80px;
+
+  background: center url('./images/visa.png');
+  background-size: cover;
+}
+
+.card__front__number {
+  width: 100%;
+
+  font-size: 32px;
+  font: "Source Code Pro", monospace;
+  word-spacing: 23px;
+  font-stretch: semi-expanded;
+  
+  color: white;
+}
+
+.card__front__bottom-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  height: 50px;
+}
+.card__front__bottom-row__card-holder__label,
+.card__front__bottom-row__expires-date__label {
+  color: #ccc;
+}
+.card__front__bottom-row__card-holder__value,
+.card__front__bottom-row__expires-date__value {
+  margin-top: 5px;
+  
+  font-size: 1.4em;
+  
+  color: white;
 }
 
 
-.card-front {
-  background: red;
+.card__back {
+  z-index: 0;
+  
+  background: center url('./images/cyber-girl.jpeg');
+  background-size: cover;
+
+  transform: perspective(2000px) rotateY(-180deg) rotateX(0deg) rotate(0deg);
 }
 
-.card-back {
-  background: blue;
+.card.turned .card__front {
+  transform: perspective(2000px) rotateY(-180deg) rotateX(0deg) rotate(0deg);
+  transform-style: preserve-3d;
+  z-index: 0;
+}
+
+.card.turned .card__back {
+  transform: perspective(2000px) rotateY(-360deg) rotateX(0deg) rotate(0deg);
+  transform-style: preserve-3d;
+  z-index: 1;
 }
