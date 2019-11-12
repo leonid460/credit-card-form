@@ -2,31 +2,24 @@
   position: absolute;
   bottom: 0;
 
-  border-radius: 6px;
+  border-radius: 10px;
 
-  width: 600px;
-  height: 600px;
+  width: 580px;
+  height: 510px;
 
   background: white;
 }
 
 .card-form__inner {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 30px;
+  margin-top: 180px;
+  padding: 0 30px;
 
-  border-radius: 6px;
-
-  height: 390px;
-  width: 540px;
-  
-  background: rgb(207, 207, 207);
+  height: 290px;
+  width: 100%;
 }
 
 .card-form__inner__input-field {
@@ -35,6 +28,10 @@
 
   width: 100%;
 }
+.card-form__inner__input-field label {
+  color: rgb(17, 17, 17);
+}
+
 
 .card-form__inner__row {
   display: flex;
@@ -47,18 +44,27 @@
   flex-direction: column;
 }
 
-input {
+.card-form__input {
   height: 55px;
-  padding: 10px;
+  padding-left: 10px;
 
   border-radius: 5px;
-  border: solid 0px;
+  border: solid 1px #ccc;
+
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+
+  background: white;
+  color: #1a3b5d;
+}
+.card-form__input:hover,
+.card-form__input:focus {
+  border-color: #3d9cff;
+  transition: all 0.3s ease-in-out;
 }
 
-#expiration-month,
-#expiration-year,
-#cw {
-  width: 140px;
+.card-form__inner__row__column .card-form__input {
+  width: 155px;
 }
 
 #expiration-month {

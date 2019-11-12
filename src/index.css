@@ -24,7 +24,7 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
 
-  background: #ddeefc;
+  background: url('./assets/images/background.png');
 }
 
 .wrapper {
@@ -33,5 +33,5 @@ body {
   align-items: center;
   position: relative;
 
-  height: 750px;
+  height: 650px;
 }
